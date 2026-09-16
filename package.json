@@ -1,0 +1,13 @@
+{
+  "name": "quicknotes",
+  "version": "1.0.0",
+  "description": "A lightweight, browser-based notes app with localStorage persistence",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["notes", "localstorage", "spa", "vanilla-js"],
+  "author": "",
+  "license": "MIT"
+}
