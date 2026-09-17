@@ -42,9 +42,22 @@ async function initAuthSession(controller) {
       controller.state.activeId = allNotes.length > 0 ? allNotes[0].id : null;
       controller.refreshUI();
     }
+
+    // Update sync status badge & version label
+    const syncLabel = document.getElementById('sync-status-label');
+    const syncWrapper = document.getElementById('header-sync-status');
+    const versionLabel = document.getElementById('version-label');
+
     if (user) {
       const displayName = user.username || user.user_metadata?.username || user.user_metadata?.display_name || user.email?.split('@')[0] || 'User';
       const initial = displayName.charAt(0).toUpperCase();
+
+      if (syncLabel) syncLabel.textContent = 'Cloud Sync';
+      if (syncWrapper) {
+        syncWrapper.title = `Signed in as ${user.email || displayName} — notes synced to cloud`;
+        syncWrapper.classList.add('is-cloud');
+      }
+      if (versionLabel) versionLabel.textContent = 'v1.0 Cloud';
 
       if (authLabel) authLabel.textContent = displayName.length > 14 ? displayName.slice(0, 12) + '…' : displayName;
       if (authIcon) authIcon.textContent = 'person';
@@ -57,6 +70,13 @@ async function initAuthSession(controller) {
       if (authUserName) authUserName.textContent = displayName;
       if (authUserEmail) authUserEmail.textContent = user.email || `@${displayName}`;
     } else {
+      if (syncLabel) syncLabel.textContent = 'Local Sync';
+      if (syncWrapper) {
+        syncWrapper.title = 'Notes are saved securely in browser local storage';
+        syncWrapper.classList.remove('is-cloud');
+      }
+      if (versionLabel) versionLabel.textContent = 'v1.0 Local';
+
       if (authLabel) authLabel.textContent = 'Sign In';
       if (authIcon) authIcon.textContent = 'account_circle';
       if (authBtn) {

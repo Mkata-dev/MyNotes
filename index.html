@@ -23,9 +23,9 @@
         <span class="material-symbols-outlined">edit_note</span>
       </div>
       <span class="brand-title">QuickNotes</span>
-      <div class="header-sync-status" title="Notes are saved securely in browser local storage">
-        <span class="sync-pulse"></span>
-        <span>Local Sync</span>
+      <div class="header-sync-status" id="header-sync-status" title="Notes are saved securely in browser local storage">
+        <span class="sync-pulse" id="sync-pulse-dot"></span>
+        <span id="sync-status-label">Local Sync</span>
       </div>
     </div>
 
@@ -150,7 +150,7 @@
           <span class="material-symbols-outlined text-[18px]">settings</span>
           <span>Settings &amp; Vault</span>
         </button>
-        <span class="text-faint text-[11px] font-mono">v1.0 Local</span>
+        <span class="text-faint text-[11px] font-mono" id="version-label">v1.0 Local</span>
       </footer>
     </aside>
 
