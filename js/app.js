@@ -60,7 +60,7 @@ async function initAuthSession(controller) {
       if (authLabel) authLabel.textContent = 'Sign In';
       if (authIcon) authIcon.textContent = 'account_circle';
       if (authBtn) {
-        authBtn.href = './login.html';
+        authBtn.href = '/login.html';
         authBtn.title = 'Sign In / Account';
         authBtn.classList.remove('is-authenticated');
       }

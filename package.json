@@ -4,6 +4,7 @@
   "description": "A lightweight, browser-based notes app with localStorage persistence",
   "type": "module",
   "scripts": {
+    "build": "echo \"Static build complete\"",
     "start": "node server.js",
     "dev": "node server.js"
   },

@@ -101,8 +101,34 @@ html, body {
   font-family: var(--font-sans);
   background-color: var(--bg-canvas);
   color: var(--text-main);
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Material Symbols Outlined definition for sharp icon rendering */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+  user-select: none;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 button, input, textarea, select {
@@ -281,7 +307,6 @@ button, input, textarea, select {
   background-color: var(--bg-sidebar);
   border-right: 1px solid var(--border-color);
   display: flex;
-  flex-col: column;
   flex-direction: column;
   height: 100%;
 }
@@ -444,6 +469,25 @@ button, input, textarea, select {
   min-width: 0;
 }
 
+.drag-handle {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-faint);
+  cursor: grab;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--trans-fast);
+}
+
+.note-card:hover .drag-handle,
+.note-card:focus-within .drag-handle {
+  opacity: 1;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
 .pin-indicator {
   color: var(--color-pin);
   display: inline-flex;
@@ -500,6 +544,7 @@ button, input, textarea, select {
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
