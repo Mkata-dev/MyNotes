@@ -87,8 +87,10 @@ function setLoading(btn, spinner, textEl, isLoading, defaultText = 'Submit') {
   if (spinner) {
     if (isLoading) {
       spinner.removeAttribute('hidden');
+      spinner.style.display = 'inline-block';
     } else {
       spinner.setAttribute('hidden', '');
+      spinner.style.display = 'none';
     }
   }
   if (textEl) {
@@ -241,6 +243,9 @@ function initLoginForm() {
   const spinner = document.getElementById('login-spinner');
   const alertBox = document.getElementById('login-alert');
 
+  // Explicitly ensure non-loading state on initial render
+  setLoading(submitBtn, spinner, btnText, false, 'Sign In');
+
   async function handleLogin(e) {
     if (e) {
       e.preventDefault();
@@ -329,6 +334,9 @@ function initSignupForm() {
   const btnText = document.getElementById('signup-btn-text');
   const spinner = document.getElementById('signup-spinner');
   const alertBox = document.getElementById('signup-alert');
+
+  // Explicitly ensure non-loading state on initial render
+  setLoading(submitBtn, spinner, btnText, false, 'Create Account');
 
   async function handleSignup(e) {
     if (e) {
@@ -432,6 +440,9 @@ function initForgotForm() {
   const alertBox = document.getElementById('forgot-alert');
   const forgotCard = document.getElementById('forgot-card');
   const successCard = document.getElementById('forgot-success-card');
+
+  // Explicitly ensure non-loading state on initial render
+  setLoading(submitBtn, spinner, btnText, false, 'Reset Password');
 
   async function handleForgot(e) {
     if (e) {

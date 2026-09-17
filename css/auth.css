@@ -3,6 +3,11 @@
  * 100% aligned with QuickNotes design tokens, typography, and light/dark theme.
  */
 
+/* Strict hidden attribute enforcement */
+[hidden] {
+  display: none !important;
+}
+
 /* Main Auth Page Viewport Container */
 .auth-page {
   min-height: 100vh;
@@ -194,21 +199,27 @@
   font-weight: 600;
   border-radius: 8px;
   min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-/* Spinner */
+/* Spinner - strictly hidden unless active loading state */
 .auth-spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.35);
   border-top-color: #FFFFFF;
   border-radius: 50%;
   animation: spin 600ms linear infinite;
   display: inline-block;
+  flex-shrink: 0;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
+.auth-spinner[hidden],
+[hidden].auth-spinner {
+  display: none !important;
 }
 
 /* Alert Notification */
@@ -221,6 +232,10 @@
   gap: 0.5rem;
   line-height: 1.4;
   margin-bottom: 0.25rem;
+}
+
+.auth-alert[hidden] {
+  display: none !important;
 }
 
 .auth-alert.error {

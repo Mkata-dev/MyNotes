@@ -96,6 +96,11 @@ html.dark {
   padding: 0;
 }
 
+/* Strict hidden enforcement across all browsers and custom styles */
+[hidden] {
+  display: none !important;
+}
+
 html, body {
   height: 100%;
   font-family: var(--font-sans);
